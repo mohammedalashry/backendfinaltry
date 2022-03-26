@@ -25,6 +25,14 @@
       }
     },
     {
+      "method": "GET",
+      "path": "/posts/:page/:position",
+      "handler": "posts.findPost",
+      "config": {
+        "policies": []
+      }
+    },
+    {
       "method": "POST",
       "path": "/posts",
       "handler": "posts.create",

@@ -24,7 +24,7 @@ const setDefaultPermissions = async () => {
     .find({ type: "application", role: role.id });
 
   permissions = permissions.filter(
-    (p) => p.action === "find" || p.action === "findone"
+    (p) => p.action === "find" || p.action === "findone" || p.action === 'findpost'
   );
 
   await Promise.all(
