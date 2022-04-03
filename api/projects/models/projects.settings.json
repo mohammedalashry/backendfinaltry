@@ -2,7 +2,8 @@
   "kind": "collectionType",
   "collectionName": "projects",
   "info": {
-    "name": "Projects"
+    "name": "Projects",
+    "description": ""
   },
   "options": {
     "increments": true,
@@ -29,13 +30,9 @@
       "type": "text",
       "required": true
     },
-    "type": {
-      "type": "enumeration",
-      "enum": [
-        "residential",
-        "commercial"
-      ],
-      "required": true
+    "category": {
+      "via": "projects",
+      "model": "categories"
     }
   }
 }
