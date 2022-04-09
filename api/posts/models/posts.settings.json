@@ -13,9 +13,8 @@
   "pluginOptions": {},
   "attributes": {
     "page": {
-      "type": "integer",
-      "required": true,
-      "min": 1
+      "type": "string",
+      "required": true
     },
     "position": {
       "type": "integer",

@@ -1,0 +1,47 @@
+{
+  "kind": "collectionType",
+  "collectionName": "request_demos",
+  "info": {
+    "name": "request-demo",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "firstName": {
+      "type": "string",
+      "required": true
+    },
+    "lastName": {
+      "type": "string",
+      "required": true
+    },
+    "email": {
+      "type": "email",
+      "required": true
+    },
+    "phoneNumber": {
+      "type": "string",
+      "required": true
+    },
+    "company": {
+      "type": "string",
+      "required": true
+    },
+    "interestedInLearning": {
+      "type": "string",
+      "required": true
+    },
+    "propertyYouOwn": {
+      "type": "text",
+      "required": true
+    },
+    "message": {
+      "type": "text"
+    }
+  }
+}
