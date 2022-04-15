@@ -7,6 +7,13 @@ const { sanitizeEntity } = require("strapi-utils");
  */
 
 module.exports = {
+  async findOne(ctx){
+    let { page } = ctx.params;
+    let entities = await strapi.services.posts.search({ page });
+    return entities.map((entity) =>
+      sanitizeEntity(entity, { model: strapi.models.posts })
+    );
+  },
   async findPost(ctx) {
     // let entities = [];
     let { page, position } = ctx.params;
