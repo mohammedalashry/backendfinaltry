@@ -14,19 +14,17 @@ module.exports = {
       sanitizeEntity(entity, { model: strapi.models.posts })
     );
   },
+  // async update(ctx){
+  //   console.log(ctx);
+  //   // let { page, position } = ctx.body;
+  //   // console.log(page, position);
+  //   // if(page === "landing page" && position === 3){
+  //   //   return ctx.badRequest('name is missing', { foo: 'bar' })
+  //   // }
+  //   ctx.badRequest('name is missing', { foo: 'bar' })
+  // },
   async findPost(ctx) {
-    // let entities = [];
     let { page, position } = ctx.params;
-    // position = parseInt(position);
-    // if (page == 1 && position == 5) {           // WHY CHOOSE US
-    //   for (let i = 0; i < 6; i++) {
-    //     const post = await strapi.services.posts.search({
-    //       page,
-    //       position: position + i,
-    //     });
-    //     entities.push(post[0]);
-    //   }
-    // } else
     let entities = await strapi.services.posts.search({ page, position });
     return entities.map((entity) =>
       sanitizeEntity(entity, { model: strapi.models.posts })

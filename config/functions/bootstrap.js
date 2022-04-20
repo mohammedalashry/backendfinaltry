@@ -23,9 +23,26 @@ const setDefaultPermissions = async () => {
     .query("permission", "users-permissions")
     .find({ type: "application", role: role.id });
 
-  permissions = permissions.filter(
-    (p) => p.action === "find" || p.action === "findone" || p.action === 'findpost' || p.action === 'create'
-  );
+  permissions = permissions.filter((p) => {
+    if (p.controller === "categories") {
+      return p.action === "find" || p.action === "findone";
+    }
+    if (p.controller === "contact") {
+      return p.action === "create";
+    }
+    if (p.controller === "posts") {
+      return p.action === "findone";
+    }
+    if (p.controller === "projects") {
+      return p.action === "find" || p.action === "findone";
+    }
+    if (p.controller === "request-demo") {
+      return p.action === "create";
+    }
+    if (p.controller === "social-media") {
+      return p.action === "find";
+    }
+  });
 
   await Promise.all(
     permissions.map((p) => {
@@ -48,10 +65,10 @@ const isFirstRun = async () => {
 };
 
 module.exports = async () => {
-//   const shouldSetDefaultPermissions = await isFirstRun();
-//   if (shouldSetDefaultPermissions) {
-    await setDefaultPermissions();
-//   }
+  //   const shouldSetDefaultPermissions = await isFirstRun();
+  //   if (shouldSetDefaultPermissions) {
+  await setDefaultPermissions();
+  //   }
 };
 
 // module.exports = () => {};
